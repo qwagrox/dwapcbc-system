@@ -1,0 +1,36 @@
+{
+  "name": "示例场景3 - 简单环境",
+  "description": "少量障碍物，测试平滑度优化",
+  "start": {
+    "x": 10,
+    "y": 10
+  },
+  "goal": {
+    "x": 90,
+    "y": 90
+  },
+  "environment": {
+    "width": 100,
+    "height": 100,
+    "resolution": 0.5
+  },
+  "obstacles": [
+    {
+      "type": "circle",
+      "center": [50, 50],
+      "radius": 12
+    },
+    {
+      "type": "rectangle",
+      "vertices": [[30, 70], [30, 80], [40, 80], [40, 70]]
+    }
+  ],
+  "parameters": {
+    "w1": 0.4,
+    "w2": 0.6,
+    "safety_margin": 1.5,
+    "curvature_threshold": 0.12,
+    "max_iterations": 50
+  }
+}
+

@@ -1,0 +1,66 @@
+{
+  "name": "示例场景2 - 高障碍物密度",
+  "description": "密集障碍物环境，测试安全性和路径规划能力",
+  "start": {
+    "x": 5,
+    "y": 5
+  },
+  "goal": {
+    "x": 95,
+    "y": 95
+  },
+  "environment": {
+    "width": 100,
+    "height": 100,
+    "resolution": 0.5
+  },
+  "obstacles": [
+    {
+      "type": "rectangle",
+      "vertices": [[10, 25], [10, 40], [15, 40], [15, 25]]
+    },
+    {
+      "type": "rectangle",
+      "vertices": [[10, 75], [10, 80], [25, 80], [25, 75]]
+    },
+    {
+      "type": "rectangle",
+      "vertices": [[25, 5], [25, 10], [45, 10], [45, 5]]
+    },
+    {
+      "type": "rectangle",
+      "vertices": [[25, 25], [25, 45], [45, 45], [45, 25]]
+    },
+    {
+      "type": "circle",
+      "center": [60, 20],
+      "radius": 6
+    },
+    {
+      "type": "circle",
+      "center": [60, 50],
+      "radius": 8
+    },
+    {
+      "type": "circle",
+      "center": [60, 80],
+      "radius": 5
+    },
+    {
+      "type": "rectangle",
+      "vertices": [[70, 10], [70, 35], [75, 35], [75, 10]]
+    },
+    {
+      "type": "rectangle",
+      "vertices": [[80, 50], [80, 75], [90, 75], [90, 50]]
+    }
+  ],
+  "parameters": {
+    "w1": 0.7,
+    "w2": 0.3,
+    "safety_margin": 2.5,
+    "curvature_threshold": 0.08,
+    "max_iterations": 50
+  }
+}
+

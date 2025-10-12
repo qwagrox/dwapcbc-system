@@ -1,0 +1,40 @@
+{
+  "name": "示例场景1 - 中等复杂度",
+  "description": "包含矩形和圆形障碍物的中等复杂度环境",
+  "start": {
+    "x": 5,
+    "y": 5
+  },
+  "goal": {
+    "x": 95,
+    "y": 95
+  },
+  "environment": {
+    "width": 100,
+    "height": 100,
+    "resolution": 0.5
+  },
+  "obstacles": [
+    {
+      "type": "rectangle",
+      "vertices": [[20, 20], [20, 40], [40, 40], [40, 20]]
+    },
+    {
+      "type": "circle",
+      "center": [60, 60],
+      "radius": 8
+    },
+    {
+      "type": "rectangle",
+      "vertices": [[70, 10], [70, 30], [85, 30], [85, 10]]
+    }
+  ],
+  "parameters": {
+    "w1": 0.6,
+    "w2": 0.4,
+    "safety_margin": 2.0,
+    "curvature_threshold": 0.1,
+    "max_iterations": 50
+  }
+}
+
