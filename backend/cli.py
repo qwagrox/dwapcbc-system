@@ -13,7 +13,8 @@ from matplotlib.patches import Circle, Polygon as MplPolygon
 import numpy as np
 
 from dwapcbc import DWAPCBCPlanner, DWAPCBCConfig
-
+plt.rcParams['font.sans-serif'] = ['SimHei']  # 适用于 Windows
+plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 
 def visualize_result(planner, result, save_path=None, show=True):
     """
@@ -58,13 +59,21 @@ def visualize_result(planner, result, save_path=None, show=True):
             ax.add_patch(poly)
     
     if result.success:
-        # 绘制初始路径（虚线）
+        # 绘制初始路径（虚线，完整不截断）
         if len(result.initial_path) > 1:
-            initial_x = [p[0] for p in result.initial_path[:50]]  # 限制点数
-            initial_y = [p[1] for p in result.initial_path[:50]]
-            ax.plot(initial_x, initial_y, 'gray', linestyle='--', 
-                   linewidth=1, alpha=0.5, label='初始路径')
-        
+            pts = result.initial_path  # 不截断
+            initial_x = [p[0] for p in pts]
+            initial_y = [p[1] for p in pts]
+            ax.plot(
+                initial_x, initial_y,
+                linestyle=(0, (4, 4)),   # 更清晰的虚线
+                linewidth=1.5,
+                color='dimgray',
+                alpha=0.9,
+                label='初始路径',
+                zorder=6                 # 稍微抬高层级，避免被遮挡
+            )
+
         # 绘制优化后的路径点
         if len(result.optimized_waypoints) > 0:
             wp_x = [p[0] for p in result.optimized_waypoints]
@@ -105,7 +114,7 @@ def visualize_result(planner, result, save_path=None, show=True):
         
         props = dict(boxstyle='round', facecolor='wheat', alpha=0.9)
         ax.text(0.02, 0.98, textstr, transform=ax.transAxes, fontsize=10,
-               verticalalignment='top', bbox=props, family='monospace')
+               verticalalignment='top', bbox=props)
     
     ax.legend(loc='upper right', fontsize=10)
     
