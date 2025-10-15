@@ -1,0 +1,119 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dwapcbc"
+version = "1.0.0"
+description = "Dynamic Waypoint Allocation Piecewise Cubic Bezier Curve Path Planning Library"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "DWAPCBC Team", email = "your.email@example.com"}
+]
+maintainers = [
+    {name = "DWAPCBC Team", email = "your.email@example.com"}
+]
+keywords = [
+    "path planning",
+    "robotics",
+    "mobile robots",
+    "bezier curve",
+    "dijkstra",
+    "motion planning",
+    "autonomous navigation",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Robotics",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "numpy>=1.20.0",
+    "scipy>=1.7.0",
+    "matplotlib>=3.4.0",
+    "pandas>=1.3.0",
+    "networkx>=2.6.0",
+    "shapely>=1.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+    "mypy>=0.950",
+]
+api = [
+    "flask>=2.0.0",
+    "flask-cors>=3.0.0",
+]
+all = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+    "mypy>=0.950",
+    "flask>=2.0.0",
+    "flask-cors>=3.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/qwagrox/dwapcbc-system"
+Documentation = "https://github.com/qwagrox/dwapcbc-system/blob/main/README.md"
+Repository = "https://github.com/qwagrox/dwapcbc-system"
+"Bug Tracker" = "https://github.com/qwagrox/dwapcbc-system/issues"
+
+[project.scripts]
+dwapcbc-plan = "dwapcbc.cli:main"
+dwapcbc-batch = "dwapcbc.batch_test:main"
+
+[tool.setuptools]
+packages = ["dwapcbc"]
+
+[tool.setuptools.package-data]
+dwapcbc = ["scenarios/*.json"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers"
+testpaths = [
+    "tests",
+]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+

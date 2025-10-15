@@ -1,0 +1,17 @@
+# 包含额外文件
+include README.md
+include LICENSE
+include requirements.txt
+include USAGE_GUIDE.md
+include PROJECT_SUMMARY.md
+
+# 包含场景配置文件
+recursive-include dwapcbc/scenarios *.json
+
+# 排除不必要的文件
+exclude .gitignore
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude tests *
+recursive-exclude docs *
+

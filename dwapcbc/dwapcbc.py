@@ -9,9 +9,9 @@ from typing import List, Tuple, Dict, Optional
 from dataclasses import dataclass
 import time
 
-from dijkstra import DijkstraPathPlanner
-from path_optimizer import PathOptimizer
-from bezier_curve import PiecewiseCubicBezierCurve
+from .dijkstra import DijkstraPathPlanner
+from .path_optimizer import PathOptimizer, PathMetrics
+from .bezier_curve import PiecewiseCubicBezierCurve
 
 
 # =========================
